@@ -1,0 +1,37 @@
+#! /usr/bin/env node
+
+// commander
+const program = require('commander');
+
+const Prompts = require('../lib/prompts');
+
+// crawler
+const Crawlers = require('../lib/crawlers');
+
+// printer
+const Printers = require('../lib/printers');
+
+// Cache
+const Cache = require('../lib/util/cache');
+
+// global prompts
+global.Prompts = Prompts;
+// global crawlers
+global.Crawlers = Crawlers;
+// global printers
+global.Printers = Printers;
+// global store... empty obj
+global.Store = {};
+
+program
+  // .usage
+  .usage(' ')
+  // .description, text .....
+  .description('Latest hacker news')
+  // .parse
+  // process.argv ....
+  .parse(process.argv);
+
+console.log();
+
+Prompts.menu();
